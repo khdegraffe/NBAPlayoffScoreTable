@@ -8,6 +8,7 @@ function drawCard(deck) {
 
 const myDeck = {
   deck: [],
+  drawnCards: [],
   suits: ["hearts", "diamonds", "spades", "clubs"],
   values: ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"],
   initializeDeck() {
@@ -20,6 +21,15 @@ const myDeck = {
     // return deck;
   },
   drawCard() {
-    return this.deck.pop();
+    const card = this.deck.pop();
+    this.drawnCards.push(card);
+    return card;
+  },
+  drawMultiple(numCards) {
+    const cards = [];
+    for (let i = 0; i < numCards; i++) {
+      cards.push(this.drawCard());
+    }
+    return cards;
   },
 };
