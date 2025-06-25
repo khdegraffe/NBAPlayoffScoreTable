@@ -32,15 +32,15 @@ const myDeck = {
     }
     return cards;
   },
+  //Fisher-Yates Shuffle algorithm
+  shuffle() {
+    const { deck } = this;
+    // loop over array backwards
+    for (let i = deck.length - 1; i > 0; i--) {
+      //pick random index before current element
+      let j = Math.floor(Math.random() * (i + 1));
+      //swap
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+  },
 };
-
-//Fisher-Yates Shuffle algorithm
-function shuffle(arr) {
-  // loop over array backwards
-  for (let i = arr.length - 1; i > 0; i--) {
-    //pick random index before current element
-    let j = Math.floor(Math.random() * (i + 1));
-    //swap
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-}
